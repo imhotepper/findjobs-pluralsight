@@ -27,6 +27,8 @@ var uristring =
 
 mongoose.connect(uristring);
 var conn = mongoose.connection;
+
+//conn.close();
 conn.once('open', function(){
     console.info('We are connected to the MongoDB instance here!');
     jobModel.seedJobs();
