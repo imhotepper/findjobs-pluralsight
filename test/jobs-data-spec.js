@@ -4,8 +4,7 @@ var jobModel = require("../models/Job");
 var Promise = require("bluebird");
 var jobsData = require("../jobs-data");
 
-var uristring =
-            'mongodb://localhost/findjobs';
+var uristring ='mongodb://localhost/findjobs';
 
 
 
@@ -30,7 +29,7 @@ describe("Job", function(){
             .then(jobsData.findJobs)
             .then(function( jobsCollection){
                     jobs = jobsCollection;
-                    done();
+                    done();  
                 });   
     });
     
