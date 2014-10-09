@@ -28,9 +28,8 @@ app.get('*', function(req,res){
 });
 
 var uristring =
-          //  process.env.MONGOLAB_URI ||
-         //   process.env.MONGOHQ_URL ||
-         ' mongodb://findjobs:<dbpassword>@ds043210.mongolab.com:43210/heroku_app30497972' ||
+           process.env.MONGOLAB_URI ||
+            process.env.MONGOHQ_URL ||
             'mongodb://localhost/findjobs';
 
 mongoose.connect(uristring);
