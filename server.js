@@ -2,6 +2,7 @@ var express = require("express");
 var app = express();
 var mongoose = require("mongoose");
 var jobModel = require("./models/Job");
+var jobsData = require("./jobs-data");
 
 app.set('views', __dirname + '/');
 app.engine('.html', require('ejs').renderFile);
@@ -10,7 +11,7 @@ app.use(express.static( __dirname + '/public'))
 
 //api jobs
 app.get('/api/jobs', function(req,res){
-    mongoose.model('Job').find({}).sort({title:1}).exec(function(err, coll){
+    jobsData.findJobs().then(function(err, coll){
         res.json(coll);
     });
 });
