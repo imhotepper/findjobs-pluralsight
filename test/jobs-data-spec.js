@@ -5,10 +5,7 @@ var Promise = require("bluebird");
 var jobsData = require("../jobs-data");
 
 var uristring =
-        'mongodb://findjobs:findjobs@ds043210.mongolab.com:43210/heroku_app30497972';
-            //process.env.MONGOLAB_URI ||
-            //process.env.MONGOHQ_URL ||
-            //'mongodb://localhost/findjobs';
+            'mongodb://localhost/findjobs';
 
 
 
