@@ -16,14 +16,21 @@ app.get('/api/jobs', function(req,res){
     });
 });
 
+app.get('/api/jobs/clear', function(req,res){
+    mongoose.model('Job').remove({}).then(function(err, coll){
+        res.json({removed:true});
+    });
+});
+
 
 app.get('*', function(req,res){
    res.render('index'); 
 });
 
 var uristring =
-            process.env.MONGOLAB_URI ||
-            process.env.MONGOHQ_URL ||
+          //  process.env.MONGOLAB_URI ||
+         //   process.env.MONGOHQ_URL ||
+         ' mongodb://findjobs:<dbpassword>@ds043210.mongolab.com:43210/heroku_app30497972' ||
             'mongodb://localhost/findjobs';
 
 mongoose.connect(uristring);
