@@ -15,6 +15,20 @@
 
 <body ng-app='app'>
     <div class="container " ng-controller='testCtrl'>
+        
+        <h2>Post a job</h2>
+        <form ng-submit="save()">
+            <div class="form-group">
+                <input type="text" ng-model="job.title" class='form-control' placeholder="Title"/>    
+            </div>
+            <div class="form-group">
+                <textarea ng-model="job.description" class="form-control" placeholder="Description" ></textarea>
+            </div>
+            <div class="form-group">
+                <button ng-click="save()" class="btn btn-primary">Post Job</button>
+            </div>
+            
+        </form>
         <div class="page-header">
             <h1>Find a Job Today!</h1>
         </div>
@@ -31,9 +45,12 @@
 
 
     <script type="text/javascript" src="/bower_components/angular/angular.min.js "></script>
+    <script type="text/javascript" src="/bower_components/angular-resource/angular-resource.min.js "></script>
     <script type="text/javascript" src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    
     <script type="text/javascript" src="/app/app.js"></script>
+    <script type="text/javascript" src="/app/jobs.js"></script>
 </body>
 
 </html>

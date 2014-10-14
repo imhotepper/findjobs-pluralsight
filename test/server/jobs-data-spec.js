@@ -1,8 +1,8 @@
 var expect = require("chai").expect;
 var mongoose = require("mongoose");
-var jobModel = require("../models/Job");
+var jobModel = require("../../models/Job");
 var Promise = require("bluebird");
-var jobsData = require("../jobs-data");
+var jobsData = require("../../jobs-data");
 
 var uristring ='mongodb://localhost/findjobs';
 
@@ -12,8 +12,8 @@ function resetJobs(){
     return new Promise(function(resolve, reject){
         mongoose.connection.collections['jobs'].drop(resolve, reject);
     });
-    
 }
+
 
 var connectDB = Promise.promisify(mongoose.connect, mongoose);
 
@@ -23,6 +23,7 @@ describe("Job", function(){
     var jobs ;
     
     before(function(done){
+        this.timeout=
           connectDB(uristring)
             .then(resetJobs)
             .then(jobModel.seedJobs)
@@ -32,6 +33,8 @@ describe("Job", function(){
                     done();  
                 });   
     });
+    
+    after(function(){mongoose.connection.close})
     
     it("should have data in MongoDB from seed", function(){
             expect(jobs.length).to.be.at.least(3);

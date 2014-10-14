@@ -23,6 +23,7 @@ function findJobs(query){
 exports.seedJobs = function(){
       return  findJobs({})
                 .then(function(collection){
+                    console.log('daya: ' + collection.length);
                     if (collection.length === 0){
                       return  Promise.map(jobs,function(job){
                           return createJob(job);
